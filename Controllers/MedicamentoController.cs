@@ -25,7 +25,7 @@ namespace ApiPronutrir.Controllers
 
         }
 
-        [HttpGet("{id", Name = "getMedicamento")]
+        [HttpGet("{id}", Name = "getMedicamento")]
         public ActionResult GetById(int id)
         {
 
@@ -52,7 +52,7 @@ namespace ApiPronutrir.Controllers
             }
         }
 
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public ActionResult Delete(int id){
             if(id == 0 || !ModelState.IsValid){
                 return BadRequest(ModelState);
@@ -62,7 +62,7 @@ namespace ApiPronutrir.Controllers
             }
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public ActionResult Update(int id, [FromBody] Medicamentos medicamento){
             if(medicamento.id != id || !ModelState.IsValid){
                 return BadRequest(ModelState);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiPronutrir.Models
 {
@@ -11,7 +12,9 @@ namespace ApiPronutrir.Models
         [MinLength(5, ErrorMessage="Nome deve ter no minimo 5 caracteres")]
         [MaxLength(30, ErrorMessage="Nome deve ter no maximo 30 caracteres")]
         public string nome {get; set;}
-        [Required(ErrorMessage="Nome do Medicamento é obrigatório")]
+
+        [Required(ErrorMessage="A quantidade do Medicamento é obrigatório")]
+        [Column(TypeName = "decimal(5,2)")]
         public decimal quantidade {get; set;}
 
         [Required(ErrorMessage="Data de validade do Medicamento é obrigatório")]

@@ -46,7 +46,7 @@ namespace ApiPronutrir.Controllers
             }
         }
 
-        [HttpDelete("{id")]
+        [HttpDelete("{id}")]
         public ActionResult Delete(int id){
             if(id == 0 || !ModelState.IsValid){
                 return BadRequest(ModelState);
@@ -56,7 +56,7 @@ namespace ApiPronutrir.Controllers
             }
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public ActionResult Update(int id, [FromBody] Usuarios usuario){
             if(usuario.id != id || !ModelState.IsValid){
                 return BadRequest(ModelState);

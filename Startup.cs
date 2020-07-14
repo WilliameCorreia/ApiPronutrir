@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiPronutrir.ContextDb;
+using ApiPronutrir.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,9 @@ namespace ApiPronutrir
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ClinicaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<UsuarioService>();
+            services.AddTransient<MedicamentoService>();
+            services.AddTransient<CategoriaService>();
             services.AddControllers();
         }
 

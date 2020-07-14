@@ -1,3 +1,4 @@
+using ApiPronutrir.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiPronutrir.Controllers
@@ -6,11 +7,11 @@ namespace ApiPronutrir.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        //private class MedicamentoService _medicamentoService;
+        private readonly MedicamentoService _medicamentoService;
 
-        public UsuarioController()
+        public UsuarioController(MedicamentoService medicamentoService)
         {
-            
+            _medicamentoService = medicamentoService;
         }
 
         public ActionResult Index(){

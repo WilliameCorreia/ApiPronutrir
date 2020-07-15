@@ -13,8 +13,6 @@ namespace ApiPronutrir.Models
 
         public string nome {get; set;}
 
-        public DateTime data {get; set;}
-
         public virtual ICollection<Medicamentos> Medicamentos {get; set;}
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApiPronutrir.Models
 {
-    public class Usuarios : IValidatableObject
+        public class Usuarios : IValidatableObject
     {
         public int id {get; set;}
         [Required(ErrorMessage="Login do Usúario é obrigatório")]
@@ -28,8 +28,8 @@ namespace ApiPronutrir.Models
         [Required(ErrorMessage="Cpf do Usúario é obrigatório")]
         public string cpf {get; set;}
 
-        [Required(ErrorMessage="Tipo do Usúario é obrigatório")]
-        public int tipoUsuario {get; set;}
+        [Required(ErrorMessage="Perfil de acesso é obrigatório")]
+        public string PerfilAcesso {get; set;}
         public string crm {get; set;}
         public int matricula {get; set;}
 
@@ -38,14 +38,11 @@ namespace ApiPronutrir.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if(this.tipoUsuario == 1 && this.token == null){
+            if(this.PerfilAcesso == "1" && this.token == null){
                 yield return new ValidationResult("Token é obrigatório");
             }
-        }
 
-        public IEnumerable<ValidationResult> Validate_crm(ValidationContext validationContext)
-        {
-            if(this.tipoUsuario == 2 && this.token == null){
+             if(this.PerfilAcesso == "2" && this.token == null){
                 yield return new ValidationResult("Crm é obrigatório");
             }
         }
